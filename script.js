@@ -1,15 +1,14 @@
-function add(value) {
-    document.getElementById("input").value += value;
-}
-
-function clearInput() {
-    document.getElementById("input").value = "";
-}
-
-function solve() {
+async function send() {
     const expr = document.getElementById("input").value;
 
-    // պարզ demo տարբերակ
-    document.getElementById("result").innerText =
-        "∫(" + expr + ") dx = (demo result)";
-}
+    const res = await fetch("https://YOUR-SERVER.com/solve", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ expression: expr })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("result").innerText = data.answer;
