@@ -8,52 +8,104 @@
 body {
     font-family: Arial;
     text-align: center;
-    margin-top: 50px;
+    background: #0f172a;
+    color: white;
+    margin-top: 40px;
+}
+
+h2 {
+    color: #38bdf8;
 }
 
 input {
-    width: 300px;
+    width: 320px;
     font-size: 18px;
-    padding: 8px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.button-grid {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
-    padding: 10px;
-    margin: 5px;
+    padding: 10px 15px;
     font-size: 16px;
+    border-radius: 10px;
+    border: none;
     cursor: pointer;
+    background: #1e293b;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #38bdf8;
+    color: black;
+    transform: scale(1.05);
+}
+
+.solve {
+    margin-top: 15px;
+    background: #22c55e;
+    font-weight: bold;
 }
 
 #result {
     margin-top: 20px;
     font-size: 20px;
-    color: grսn;
+    color: #22c55e;
 }
 </style>
 </head>
 
 <body>
-<a href="https://garnikbadalyankh-beep.github.io/integral/" target="_blank">
-Բացիր իմ կայքը
-</a>
-<h2> dIntegral Solver</h2>
+
+<h2>🔥 Integral Solver</h2>
 
 <input type="text" id="input" placeholder="օրինակ՝ x^2 + sin(x)">
 
-<br><br>
+<div class="button-grid">
 
-<!-- կոճակներ -->
+<!-- հիմնական -->
 <button onclick="add('x')">x</button>
-<button onclick="add('^2')">x²</button>
-<button onclick="add('sin(')">sin</button>
-<button onclick="add('cos(')">cos</button>
+<button onclick="add('^')">^</button>
+<button onclick="add('(')">(</button>
+<button onclick="add(')')">)</button>
+
+<!-- գործողություններ -->
 <button onclick="add('+')">+</button>
 <button onclick="add('-')">-</button>
-<button onclick="add('*')">*</button>
-<button onclick="add('/')">/</button>
+<button onclick="add('*')">×</button>
+<button onclick="add('/')">÷</button>
 
-<br><br>
+<!-- ֆունկցիաներ -->
+<button onclick="add('sin(')">sin</button>
+<button onclick="add('cos(')">cos</button>
+<button onclick="add('tan(')">tan</button>
+<button onclick="add('sqrt(')">√</button>
 
-<button onclick="solve()">Solve ∫</button>
+<!-- լրացուցիչ -->
+<button onclick="add('pi')">π</button>
+<button onclick="add('e')">e</button>
+<button onclick="clearInput()">C</button>
+
+</div>
+
+<button class="solve" onclick="solve()">Solve ∫</button>
 
 <div id="result"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
