@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Integral Solver</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input {
+    width: 300px;
+    font-size: 18px;
+    padding: 8px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Integral Solver</h2>
+
+<input type="text" id="input" placeholder="օրինակ՝ x^2 + sin(x)">
+
+<br><br>
+
+<button onclick="add('x')">x</button>
+<button onclick="add('^2')">x²</button>
+<button onclick="add('sin(')">sin</button>
+<button onclick="add('cos(')">cos</button>
+<button onclick="add('+')">+</button>
+<button onclick="add('-')">-</button>
+<button onclick="add('*')">*</button>
+<button onclick="add('/')">/</button>
+
+<br><br>
+
+<button onclick="solve()">Solve ∫</button>
+
+<div id="result"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
