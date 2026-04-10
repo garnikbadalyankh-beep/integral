@@ -27,19 +27,22 @@ button {
 #result {
     margin-top: 20px;
     font-size: 20px;
-    color: green;
+    color: grսn;
 }
 </style>
 </head>
 
 <body>
-
-<h2>Integral Solver</h2>
+<a href="https://garnikbadalyankh-beep.github.io/integral/" target="_blank">
+Բացիր իմ կայքը
+</a>
+<h2> dIntegral Solver</h2>
 
 <input type="text" id="input" placeholder="օրինակ՝ x^2 + sin(x)">
 
 <br><br>
 
+<!-- կոճակներ -->
 <button onclick="add('x')">x</button>
 <button onclick="add('^2')">x²</button>
 <button onclick="add('sin(')">sin</button>
@@ -54,8 +57,3 @@ button {
 <button onclick="solve()">Solve ∫</button>
 
 <div id="result"></div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
