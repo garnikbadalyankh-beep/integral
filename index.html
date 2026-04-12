@@ -189,7 +189,7 @@ function send() {
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
-<title>Integral Input Tool</title>
+<title>Math Integral Tool</title>
 
 <style>
 body {
@@ -197,7 +197,6 @@ body {
     color: white;
     font-family: Arial;
     text-align: center;
-    margin-top: 30px;
 }
 
 h2 {
@@ -205,32 +204,34 @@ h2 {
 }
 
 #input {
-    width: 350px;
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 12px;
     border: none;
+    margin-bottom: 15px;
+}
+
+.section {
+    margin: 20px auto;
+    max-width: 700px;
 }
 
 .grid {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
 }
 
 button {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     background: #1e293b;
     color: white;
-    min-width: 50px;
+    font-size: 16px;
 }
 
 button:hover {
@@ -238,64 +239,103 @@ button:hover {
     color: black;
 }
 
-.copy {
-    background: #22c55e;
-}
+.special { background: #3b2a2a; }
+.green { background: #2a3b2a; }
+.purple { background: #2a2a3b; }
 
-.clear {
-    background: #ef4444;
-}
+.copy { background: #22c55e; }
+.clear { background: #ef4444; }
+
 </style>
 </head>
 
 <body>
 
-<h2>🧮 Integral Writer</h2>
+<h2>🧮 Advanced Integral Calculator</h2>
 
-<input type="text" id="input" placeholder="գրիր ինտեգրալ">
+<input type="text" id="input">
 
-<div class="grid">
+<!-- SECTION 1 -->
+<div class="section">
+<div class="grid special">
+<button onclick="add('d/dx')">d/dx</button>
+<button onclick="add('∞')">∞</button>
+<button onclick="add('√(')">√</button>
+<button onclick="add('(')">(</button>
+<button onclick="add(')')">)</button>
+<button onclick="back()">⌫</button>
 
-<!-- թվեր -->
-<button onclick="add('1')">1</button>
-<button onclick="add('2')">2</button>
-<button onclick="add('3')">3</button>
-<button onclick="add('4')">4</button>
-<button onclick="add('5')">5</button>
-
-<button onclick="add('6')">6</button>
+<button onclick="add('lim ')">lim</button>
 <button onclick="add('7')">7</button>
 <button onclick="add('8')">8</button>
 <button onclick="add('9')">9</button>
-<button onclick="add('0')">0</button>
-
-<!-- գործողություններ -->
-<button onclick="add('+')">+</button>
-<button onclick="add('-')">-</button>
-<button onclick="add('*')">×</button>
 <button onclick="add('/')">÷</button>
-<button onclick="add('^')">^</button>
 
-<!-- փակագծեր -->
-<button onclick="add('(')">(</button>
-<button onclick="add(')')">)</button>
+<button onclick="add('log(')">log</button>
+<button onclick="add('C(n,k)')">C</button>
+<button onclick="add('P(n,k)')">P</button>
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('*')">×</button>
 
-<!-- ֆունկցիաներ -->
+<button onclick="add('Σ')">Σ</button>
+<button onclick="add('∫')">∫</button>
+<button onclick="add('∫_')">∫ₐᵇ</button>
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('-')">-</button>
+
+<button onclick="add('x')">x</button>
+<button onclick="add('y')">y</button>
+<button onclick="add('e')">e</button>
+<button onclick="add('0')">0</button>
+<button onclick="add('.')">.</button>
+<button onclick="add('+')">+</button>
+</div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+<div class="grid green">
 <button onclick="add('sin(')">sin</button>
 <button onclick="add('cos(')">cos</button>
 <button onclick="add('tan(')">tan</button>
-<button onclick="add('sqrt(')">√</button>
-<button onclick="add('ln(')">ln</button>
+<button onclick="add('csc(')">csc</button>
+<button onclick="add('sec(')">sec</button>
+<button onclick="add('cot(')">cot</button>
 
-<!-- փոփոխականներ -->
+<button onclick="add('arcsin(')">arcsin</button>
+<button onclick="add('arccos(')">arccos</button>
+<button onclick="add('arctan(')">arctan</button>
+<button onclick="add('^2')">x²</button>
+<button onclick="add('^')">^</button>
+<button onclick="add('π')">π</button>
+
 <button onclick="add('x')">x</button>
-<button onclick="add('e')">e</button>
-<button onclick="add('pi')">π</button>
+<button onclick="add('y')">y</button>
+<button onclick="add('=')">=</button>
+</div>
+</div>
 
-<!-- ինտեգրալ նշում -->
-<button onclick="add('int ')">∫</button>
-<button onclick="add(' dx')">dx</button>
+<!-- SECTION 3 -->
+<div class="section">
+<div class="grid purple">
+<button onclick="add('<')"><</button>
+<button onclick="add('≤')">≤</button>
+<button onclick="add('>')">></button>
+<button onclick="add('≥')">≥</button>
 
+<button onclick="add('log(')">log</button>
+<button onclick="add('!')">!</button>
+<button onclick="add('%')">%</button>
+<button onclick="add('i')">i</button>
+
+<button onclick="add('x')">x</button>
+<button onclick="add('y')">y</button>
+<button onclick="add('=')">=</button>
+</div>
 </div>
 
 <br>
@@ -312,10 +352,13 @@ function clearInput() {
     document.getElementById("input").value = "";
 }
 
+function back() {
+    let input = document.getElementById("input");
+    input.value = input.value.slice(0, -1);
+}
+
 function copyText() {
     const input = document.getElementById("input");
-    input.select();
-    input.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(input.value);
     alert("Պատճենվեց 👍");
 }
