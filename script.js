@@ -13,3 +13,6 @@ function solve() {
     document.getElementById("result").innerText =
         "∫(" + expr + ") dx = (demo result)";
 }
+function openChat() {
+    window.open("https://chat.openai.com", "_blank");
+}
