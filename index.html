@@ -88,7 +88,7 @@ button:hover {
 <button class="chat" onclick="openChat()">Open ChatGPT</button>
 
 <div id="result"></div> -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
@@ -180,6 +180,144 @@ function send() {
     }, 500);
 
     input.value = "";
+}
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Integral Input Tool</title>
+
+<style>
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    color: #38bdf8;
+}
+
+#input {
+    width: 350px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.grid {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 8px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #1e293b;
+    color: white;
+    min-width: 50px;
+}
+
+button:hover {
+    background: #38bdf8;
+    color: black;
+}
+
+.copy {
+    background: #22c55e;
+}
+
+.clear {
+    background: #ef4444;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🧮 Integral Writer</h2>
+
+<input type="text" id="input" placeholder="գրիր ինտեգրալ">
+
+<div class="grid">
+
+<!-- թվեր -->
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+
+<button onclick="add('6')">6</button>
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('0')">0</button>
+
+<!-- գործողություններ -->
+<button onclick="add('+')">+</button>
+<button onclick="add('-')">-</button>
+<button onclick="add('*')">×</button>
+<button onclick="add('/')">÷</button>
+<button onclick="add('^')">^</button>
+
+<!-- փակագծեր -->
+<button onclick="add('(')">(</button>
+<button onclick="add(')')">)</button>
+
+<!-- ֆունկցիաներ -->
+<button onclick="add('sin(')">sin</button>
+<button onclick="add('cos(')">cos</button>
+<button onclick="add('tan(')">tan</button>
+<button onclick="add('sqrt(')">√</button>
+<button onclick="add('ln(')">ln</button>
+
+<!-- փոփոխականներ -->
+<button onclick="add('x')">x</button>
+<button onclick="add('e')">e</button>
+<button onclick="add('pi')">π</button>
+
+<!-- ինտեգրալ նշում -->
+<button onclick="add('int ')">∫</button>
+<button onclick="add(' dx')">dx</button>
+
+</div>
+
+<br>
+
+<button class="copy" onclick="copyText()">Copy</button>
+<button class="clear" onclick="clearInput()">Clear</button>
+
+<script>
+function add(val) {
+    document.getElementById("input").value += val;
+}
+
+function clearInput() {
+    document.getElementById("input").value = "";
+}
+
+function copyText() {
+    const input = document.getElementById("input");
+    input.select();
+    input.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(input.value);
+    alert("Պատճենվեց 👍");
 }
 </script>
 
