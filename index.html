@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
@@ -87,8 +87,57 @@ button:hover {
 
 <button class="chat" onclick="openChat()">Open ChatGPT</button>
 
-<div id="result"></div>
+<div id="result"></div> -->
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Integral Solver</title>
 
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #0f172a;
+    color: white;
+    margin-top: 40px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #1e293b;
+    color: white;
+}
+
+button:hover {
+    background: #38bdf8;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Integral Solver</h2>
+
+<input type="text" id="input">
+
+<br><br>
+
+<button onclick="openChat()">Open ChatGPT</button>
+
+<script>
+function openChat() {
+    window.location.href = "https://chat.openai.com";
+}
+</script>
+
+</body>
+</html>
 <script src="script.js"></script>
 
 </body>
