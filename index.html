@@ -92,53 +92,96 @@ button:hover {
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
-<title>Integral Solver</title>
+<title>Integral AI</title>
 
 <style>
 body {
-    font-family: Arial;
-    text-align: center;
     background: #0f172a;
     color: white;
-    margin-top: 40px;
+    font-family: Arial;
+    text-align: center;
+}
+
+#chat {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    height: 300px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.user {
+    color: #38bdf8;
+}
+
+.bot {
+    color: #22c55e;
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
 }
 
 button {
     padding: 10px;
-    margin: 5px;
     border-radius: 10px;
     border: none;
-    cursor: pointer;
-    background: #1e293b;
-    color: white;
-}
-
-button:hover {
     background: #38bdf8;
-    color: black;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Integral Solver</h2>
+<h2>🤖 Integral AI Chat</h2>
 
-<input type="text" id="input">
+<div id="chat"></div>
 
-<br><br>
-
-<button onclick="openChat()">Open ChatGPT</button>
+<input type="text" id="input" placeholder="գրիր ինտեգրալ">
+<button onclick="send()">Send</button>
 
 <script>
-function openChat() {
-    window.location.href = "https://chat.openai.com";
+function send() {
+    const input = document.getElementById("input");
+    const chat = document.getElementById("chat");
+
+    const userText = input.value;
+
+    // user message
+    chat.innerHTML += `<div class="message user">Դու: ${userText}</div>`;
+
+    // fake AI (demo)
+    let response = "Հաշվում եմ...";
+
+    if (userText.includes("x^2")) {
+        response = "∫x^2 dx = x^3/3 + C";
+    } else if (userText.includes("sin")) {
+        response = "∫sin(x) dx = -cos(x) + C";
+    } else {
+        response = "Դեռ չեմ կարող սա լուծել 😅";
+    }
+
+    // bot message
+    setTimeout(() => {
+        chat.innerHTML += `<div class="message bot">AI: ${response}</div>`;
+        chat.scrollTop = chat.scrollHeight;
+    }, 500);
+
+    input.value = "";
 }
 </script>
-
-</body>
-</html>
-<script src="script.js"></script>
 
 </body>
 </html>
