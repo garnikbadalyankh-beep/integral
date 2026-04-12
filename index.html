@@ -23,46 +23,39 @@ input {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    outline: none;
 }
 
 .button-grid {
     margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 button {
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
     background: #1e293b;
     color: white;
-    transition: 0.2s;
 }
 
 button:hover {
     background: #38bdf8;
     color: black;
-    transform: scale(1.05);
 }
 
 .solve {
-    margin-top: 15px;
     background: #22c55e;
     font-weight: bold;
 }
 
+.chat {
+    background: #f59e0b;
+}
+
 #result {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
     color: #22c55e;
 }
 </style>
@@ -75,33 +68,24 @@ button:hover {
 <input type="text" id="input" placeholder="օրինակ՝ x^2 + sin(x)">
 
 <div class="button-grid">
-
-<!-- հիմնական -->
 <button onclick="add('x')">x</button>
-<button onclick="add('^')">^</button>
-<button onclick="add('(')">(</button>
-<button onclick="add(')')">)</button>
-
-<!-- գործողություններ -->
-<button onclick="add('+')">+</button>
-<button onclick="add('-')">-</button>
-<button onclick="add('*')">×</button>
-<button onclick="add('/')">÷</button>
-
-<!-- ֆունկցիաներ -->
+<button onclick="add('^2')">x²</button>
 <button onclick="add('sin(')">sin</button>
 <button onclick="add('cos(')">cos</button>
-<button onclick="add('tan(')">tan</button>
-<button onclick="add('sqrt(')">√</button>
-
-<!-- լրացուցիչ -->
-<button onclick="add('pi')">π</button>
-<button onclick="add('e')">e</button>
+<button onclick="add('+')">+</button>
+<button onclick="add('-')">-</button>
+<button onclick="add('*')">*</button>
+<button onclick="add('/')">/</button>
 <button onclick="clearInput()">C</button>
-
 </div>
-<button onclick="openChat()">Open AI</button>
+
+<br>
+
 <button class="solve" onclick="solve()">Solve ∫</button>
+
+<br><br>
+
+<button class="chat" onclick="openChat()">Open ChatGPT</button>
 
 <div id="result"></div>
 
