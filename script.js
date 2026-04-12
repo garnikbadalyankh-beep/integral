@@ -9,10 +9,11 @@ function clearInput() {
 function solve() {
     const expr = document.getElementById("input").value;
 
-    // պարզ demo տարբերակ
     document.getElementById("result").innerText =
         "∫(" + expr + ") dx = (demo result)";
 }
+
+// ՍԱ Է ԿԱՐԵՎՈՐԸ 👇
 function openChat() {
-    window.open("https://chat.openai.com", "_blank");
+    window.location.href = "https://chat.openai.com";
 }
